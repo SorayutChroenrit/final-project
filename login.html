@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Login - SB Admin</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+    </head>
+    <body class="bg-primary" style="background-image: url(https://images.unsplash.com/photo-1486520299386-6d106b22014b?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D); " >
+        <div id="layoutAuthentication">
+            <div id="layoutAuthentication_content">
+                <main>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-5" style="justify-content: center; align-items: center;">
+                                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                    <div class="card-body" style="padding-left: 30px; padding-right: 30px;">
+                                        <form class="was-validated"  autocomplete="off"   >
+                                            <label style="padding-bottom: 6px;">Username</label>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="txtUsername" type="text" placeholder="Username" required />
+                                                
+                                                <label  style="color: gray;">Username</label>
+                                            </div>
+                                            <label style="padding-bottom: 6px;">Password</label>
+                                            <div class="form-floating mb-3">
+                                                <input class="form-control" id="txtPassword" type="password" placeholder="Password" required />
+                                                <label   style="color: gray;">Password</label>
+                                                
+                                            </div>
+                                             <div style="padding-top: 20px;" class="d-flex justify-content-center mt-4 mb-0">
+                
+                <button class="btn btn-success" type="button" onclick="Login()" style="width: 40%; margin-right: 10px; color: #fff; background-color: #18C1D9; border-color: #13B4D6;">Login As Worker</button>
+                <button  class="btn btn-success" type="button" onclick="Login()" style="width: 40%; margin-left: 10px; color: #fff; background-color: #d9184c; border-color: #d9184c;">Login As Admin</button>
+            </div>
+            <div style="padding: 12px;"></div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+            <div id="layoutAuthentication_footer">
+                
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+        <script>
+            
+
+            const Login = () => {
+                let UserName = document.getElementById('txtUsername').value;
+                let Password = document.getElementById("txtPassword").value;
+        
+                if (UserName === 'admin' && Password === '1111') {
+                    // Perform successful login actions
+                    window.location.href = 'index.html';
+        
+                    // Reset form values
+                    document.getElementById('txtUsername').value = '';
+                    document.getElementById('txtPassword').value = '';
+                } else if (UserName === 'worker1' && Password === '1111'){
+                    // Perform successful login actions
+                    window.location.href = 'index.html';
+        
+                    // Reset form values
+                    document.getElementById('txtUsername').value = '';
+                    document.getElementById('txtPassword').value = '';
+                }
+                else {
+                    alert('Invalid Username / Password.');
+                    document.getElementById('txtUsername').value = '';
+                    document.getElementById('txtPassword').value = '';
+                }
+            }
+        </script>
+    </body>
+</html>
