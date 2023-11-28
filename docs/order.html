@@ -41,6 +41,8 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#confirmationModal">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -62,19 +64,18 @@
                             <a class="nav-link collapsed" href="Product.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                                 Products<div class="sb-sidenav-collapse-arrow"></div>
+                            </a>  
+                            <a class="nav-link collapsed" href="in-out.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                Stock in<div class="sb-sidenav-collapse-arrow"></div>
                             </a> 
-                            
                             <a class="nav-link" href="reports.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                <div class="sb-nav-link-icon" ><i class="fas fa-chart-area"></i></div>
                                 Reports
                             </a>
                             <a class="nav-link" href="employee.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Employ
-                            </a>
-                            <a class="nav-link" id="logoutLink" data-bs-toggle="modal" data-bs-target="#confirmationModal">
-                                <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt fa-rotate-180"></i></div>
-                                Logout
+                                Employee
                             </a>
                         </div>
                     </div>
@@ -140,7 +141,7 @@
                                                     <div style="flex: 1;">
                                                         <label for="Dby" class="form-label" style="font-weight: bold;">Delivered By</label>
                                                         <select class="form-select" id="Dby" aria-describedby="Dby">
-                                                            <option value="" disabled selected hidden>(Optional)</option>
+                                                            <option value="" disabled selected hidden></option>
                                                             <option value="option1">Flash Express</option>
                                                             <option value="option2">Standard Delivery</option>
                                                             <option value="option3">Lazada</option>
@@ -161,9 +162,7 @@
                                                             <option value="option3">Mac Pro Display XDR</option>
                                                             <option value="option3">iMac</option>
                                                             <option value="option3">Airtag</option>
-                                                            <option value="option3">Magsafe charger</option>
-                                                            <option value="option3">Mac studio</option>
-                                                            <option value="option3">Usb c 2m</option>
+                                                            
                                                         </select>
                                                     </div>
                                                     <div class="mb-3" style="flex: 1; padding-right: 16px;">
@@ -192,9 +191,7 @@
                                                             <option value="option3">Mac Pro Display XDR</option>
                                                             <option value="option3">iMac</option>
                                                             <option value="option3">Airtag</option>
-                                                            <option value="option3">Magsafe charger</option>
-                                                            <option value="option3">Mac studio</option>
-                                                            <option value="option3">Usb c 2m</option>
+                                                            
                                                         </select>
                                                     </div>
                                                     <div class="mb-3" style="flex: 1; padding-right: 16px;">
@@ -223,9 +220,7 @@
                                                             <option value="option3">Mac Pro Display XDR</option>
                                                             <option value="option3">iMac</option>
                                                             <option value="option3">Airtag</option>
-                                                            <option value="option3">Magsafe charger</option>
-                                                            <option value="option3">Mac studio</option>
-                                                            <option value="option3">Usb c 2m</option>
+                                                            
                                                         </select>
                                                     </div>
                                                     <div class="mb-3" style="flex: 1; padding-right: 16px;">
@@ -270,9 +265,11 @@
                             </div>
                     </div>
                 </div>
+
+                
                     <div class="card-body">
                                
-                        <table id="datatablesSimple" class="table table-striped table-hover " >
+                        <table id="datatablesSimple" class="table table-striped table-hover " style="text-align: left;" >
                             <thead>
                                 <tr>
                                     <th>Number</th>
@@ -300,75 +297,7 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td>11</td>
-                                    <td><a>O5555551</a></td>
-                                    <td>S111</td>
-                                    <td>Nefertiti Ólöf</td>
-                                    <td>Lazada</td>
-                                    <td>10 Sep 66, 17:00 PM</td>
-                                    <td><span class="badge bg-primary">New</span>
-                                    </td>
-                                    <td><span class="badge bg-warning text-dark">Pending</span>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                </a>
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                <div> <div class="dropdown-divider"></div></div>
-                                                <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                </div>
-                                          </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>10</td>
-                                    <td><a>O4987129</a></td>
-                                    <td>S222</td>
-                                    <td>Rhode Luiz</td>
-                                    <td>Standard  Delivery</td>
-                                    <td>10 Sep 66, 16:50 PM</td>
-                                    <td><span class="badge bg-primary">New</span>
-                                    </td>
-                                    <td><span class="badge bg-warning text-dark">Pending</span>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                </a>
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                <div> <div class="dropdown-divider"></div></div>
-                                                <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                </div>
-                                          </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>9</td>
-                                    <td><a>O4578981</a></td>
-                                    <td>S333</td>
-                                    <td>Moriko Ljudmila</td>
-                                    <td>Flash Expess</td>
-                                    <td>10 Sep 66, 16:00 PM</td>
-                                    <td><span class="badge bg-primary">New</span>
-                                    </td>
-                                    <td><span class="badge bg-warning text-dark">Pending</span>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                </a>
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                <div> <div class="dropdown-divider"></div></div>
-                                                <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                </div>
-                                          </div>
-                                    </td>
-                                </tr>
+                                
                                 <tr>
                                     <td>8</td>
                                     <td><a>O3989897</a></td>
@@ -516,9 +445,9 @@
                                     <td>Pablo Picasso</td>
                                     <td>Lazada</td>
                                     <td>2 Sep 66, 13:00 PM</td>
-                                    <td><span class="badge bg-danger">Cancel</span>
+                                    <td><span class="badge bg-danger">Cancelled</span>
                                     </td>
-                                    <td><span class="badge bg-danger">Cancel</span>
+                                    <td><span class="badge bg-danger">Cancelled</span>
                                     </td>
                                     <td>
                                         <div class="dropdown">
@@ -557,8 +486,8 @@
                             </tbody>
                         </table>
                             </div>
-                        </div>
-                    </div>
+                     </div>
+                     </div>   
                 </main>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
@@ -592,7 +521,9 @@
 
 
 <script>
-    
+    function confirmLogout() {
+        window.location.href = "login.html";
+    }
         function createOrder() {
     // Get values from the form fields
     var customerName = document.getElementById("CusName").value;
@@ -614,17 +545,38 @@
     localStorage.setItem("deliveredBy", deliveredBy);
     localStorage.setItem("product", product);
     localStorage.setItem("quantity", quantity);
-
-    
-
     localStorage.setItem("discount", discount);
 
 
     
 }
-function confirmLogout() {
-        window.location.href = "login.html";
+
+// Function to map product names to product rates
+function mapProductNameToProductRate(productName) {
+    switch (productName) {
+        case 'option1':
+            return '8,990฿';
+        case 'option2':
+            return '19,900฿';
+        case 'option3':
+            return '46,700฿';
+        case 'option4':
+            return '79,900฿';
+        case 'option5':
+            return '48,500฿';
+        case 'option6':
+            return '189,900฿';
+        case 'option7':
+            return '49,900฿';
+        case 'option8':
+            return '1,190฿'; // Now returns a string with '฿'
+        default:
+            return ''; // Default value or handle unknown product names
     }
+}
+
+
+
         </script>
 </body>
 </html>

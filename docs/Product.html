@@ -24,6 +24,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark " >
             <!-- Navbar Brand-->
+
             <a class="navbar-brand ps-3" href="index.html" style="margin-left: 16px; background-color: #212529;">Mango Storage</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
@@ -41,6 +42,8 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#confirmationModal">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -62,19 +65,18 @@
                             <a class="nav-link collapsed" href="Product.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                                 Products<div class="sb-sidenav-collapse-arrow"></div>
+                            </a>  
+                            <a class="nav-link collapsed" href="in-out.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                Stock in<div class="sb-sidenav-collapse-arrow"></div>
                             </a> 
-                            
                             <a class="nav-link" href="reports.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                <div class="sb-nav-link-icon" ><i class="fas fa-chart-area"></i></div>
                                 Reports
                             </a>
                             <a class="nav-link" href="employee.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
-                                Employ
-                            </a>
-                            <a class="nav-link" id="logoutLink" data-bs-toggle="modal" data-bs-target="#confirmationModal">
-                                <div class="sb-nav-link-icon"><i class="fas fa-sign-in-alt fa-rotate-180"></i></div>
-                                Logout
+                                Employee
                             </a>
                         </div>
                     </div>
@@ -113,67 +115,63 @@
                     <div class="modal-dialog modal-dialog-centered modal-lg">
 
                             <!-- Modal content-->
-                            <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4  class="modal-title"  style="font-weight: bold;" >Add Product</h4>
-                                            </div>
-                                        <div class="modal-body">
-                                            <form id="orderForm">
-                                                <div class="mb-3">
-                                                  <label for="CusName" class="form-label" style="font-weight: bold;">Product Name</label>
-                                                  <input type="text" class="form-control" id="CusName" aria-describedby="CusName">
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label for="CusAdd" class="form-label" style="font-weight: bold;">Product Description</label>
-                                                    <textarea class="form-control" id="CusAdd" style="height: 50px;"></textarea>
-                                                </div>
-                                                <div class="mb-3" style="display: flex; justify-content: space-between;">
-                                                    <div style="flex: 1; margin-right: 10px;">
-                                                        <label for="CusPhone" class="form-label" style="font-weight: bold;">Product ID</label>
-                                                        <input type="text" class="form-control" id="CusPhone" aria-describedby="CusPhone">
-                                                    </div>
-                                                    <div style="flex: 1;margin-right: 10px;">
-                                                        <label for="Dtype" class="form-label" style="font-weight: bold;">Store</label>
-                                                        <input type="text" class="form-control" id="Dtype" aria-describedby="Dtype">
-                                                    </div>
-                                                    <div style="flex: 1;">
-                                                        <label for="Dtype" class="form-label" style="font-weight: bold;">Shelf</label>
-                                                        <input type="text" class="form-control" id="Dtye" aria-describedby="Dtype">
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3" style="display: flex; justify-content: space-between;">
-                                                    <div style="flex: 1; margin-right: 10px;">
-                                                        <label for="CusPhone" class="form-label" style="font-weight: bold;">Price</label>
-                                                        <input type="number" class="form-control" id="CuPhone" aria-describedby="CusPhone">
-                                                    </div>
-                                                    <div style="flex: 1;margin-right: 10px;">
-                                                        <label for="Dtype" class="form-label" style="font-weight: bold;">Quantity</label>
-                                                        <input type="number" class="form-control" id="Dtyp" aria-describedby="Dtype">
-                                                    </div> 
-                                                </div>
-                                                <div class="mb-3" style="flex: 1;">
-                                                    <a style="font-weight: bold; ">Image</a>
-                                                    <div style="padding-top: 12px;">
-                                                    <input type="file" id="image" name="image" accept="image/*">
-                                                    <input type="submit" value="Upload">
-                                                    </div>
-                                                </div>
-                                                <div class="mb-3" style="flex: 1;">
-                                                    <a style="font-weight: bold; ">Barcode</a>
-                                                    <div style="padding-top: 12px;">
-                                                    <input type="file" id="barcode" name="image" accept="image/*"><input type="submit" value="Upload">
-                                                    </div>
-                                                </div>
-                                                
-                                                
-                                                  
-                                              </form>
-                                    </div>
-                                        <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary" id="createOrderButton">Add Product</button>
-                                        <button type="button" class="btn btn-danger" id="customCloseButton" data-bs-dismiss="modal">Back</button>
-                                    </div>
-                            </div>
+<div class="modal-content">
+    <div class="modal-header">
+        <h4 class="modal-title" style="font-weight: bold;">Add Product</h4>
+    </div>
+    <div class="modal-body">
+        <form id="orderForm">
+            <div class="mb-3">
+                <label for="Pdname" class="form-label" style="font-weight: bold;">Product Name</label>
+                <input type="text" class="form-control" id="Pdname" aria-describedby="Pdname">
+            </div>
+            <div class="mb-3">
+                <label for="Description" class="form-label" style="font-weight: bold;">Description</label>
+                <textarea class="form-control" id="Description" style="height: 50px;"></textarea>
+            </div>
+            <div class="mb-3" style="display: flex; justify-content: space-between;">
+                <div style="flex: 1; margin-right: 10px;">
+                    <label for="Pid" class="form-label" style="font-weight: bold;" >Product ID</label>
+                    <input type="text" class="form-control" id="Pid" aria-describedby="Pid" >
+                </div>
+                <div style="flex: 1; margin-right: 10px;">
+                    <label for="Store" class="form-label" style="font-weight: bold;">Store</label>
+                    <select class="form-select" id="Store" aria-describedby="Product">
+                        <option value="" disabled selected hidden></option>
+                        <option value="option1">S111</option>
+                    </select>
+                </div>
+                <div style="flex: 1;">
+                    <label for="Shelf" class="form-label" style="font-weight: bold;">Shelf</label>
+                    <input type="text" class="form-control" id="Shelf" aria-describedby="Shelf">
+                </div>
+            </div>
+            <div class="mb-3" style="display: flex; justify-content: space-between;">
+                <div style="flex: 1; margin-right: 10px;">
+                    <label for="Price" class="form-label" style="font-weight: bold;">Price</label>
+                    <input type="number" class="form-control" id="Price" aria-describedby="Price">
+                </div>
+                <div style="flex: 1; margin-right: 10px;">
+                    <label for="Qty" class="form-label" style="font-weight: bold;">Quantity</label>
+                    <input type="number" class="form-control" id="Qty" aria-describedby="Qty">
+                </div>
+            </div>
+            <div class="mb-3" style="flex: 1;">
+                <label for="image" class="form-label" style="font-weight: bold;">Image</label>
+                <input type="text" class="form-control" id="image" placeholder="Image URL" aria-describedby="image">
+            </div>
+            <div class="mb-3" style="flex: 1;">
+                <label for="barcode" class="form-label" style="font-weight: bold;">Barcode</label>
+                <input type="text" class="form-control" id="barcode" placeholder="Barcode URL" aria-describedby="barcode">
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="createOrderButton">Add Product</button>
+        <button type="button" class="btn btn-danger" id="customCloseButton" data-bs-dismiss="modal">Back</button>
+    </div>
+</div>
+
                     </div>
                 </div>
                 <div class="card mb-4">
@@ -185,10 +183,10 @@
                     
                     <div class="card-body">
                                 <div class="card-body">
-                                    <table id="datatablesSimple" class="table table-striped table-hover ">
+                                    <table id="datatablesSimple" class="table table-striped table-hover " style="text-align: left;">
                                         <thead>
                                             <tr>
-                                                <th>Number</th>
+                                                <th>#</th>
                                                 <th>Store</th>
                                                 <th>Product ID</th>
                                                 <th>Shelf</th>
@@ -203,7 +201,7 @@
                                         </thead>
                                         <tfoot>
                                             <tr>
-                                                <th>Number</th>
+                                                <th>#</th>
                                                 <th>Store</th>
                                                 <th>Product ID</th>
                                                 <th>Shelf</th>
@@ -223,13 +221,13 @@
                                                 <td>#1111</td>
                                                 <td>A121A</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px;">
+                                                    <div style="display: flex; align-items: center; ">
                                                         <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MTJV3?wid=572&hei=572&fmt=jpeg&qlt=95&.v=1694014871985" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">AirPods Pro (Gen 2)</span>
+                                                        <span style="padding-left: 20px; font-weight: bold; text-align: center;">AirPods Pro (Gen 2)</span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>8990</a>฿
+                                                    <a>8,990</a>฿
                                                 </td>
                                                 <td>60</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -257,13 +255,13 @@
                                                 <td>#1112</td>
                                                 <td>B321B</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px;">
+                                                    <div style="display: flex; align-items: center;">
                                                         <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/airpods-max-hero-select-202011?wid=470&hei=556&fmt=jpeg&qlt=95&.v=1604709293000" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">AirPods Max</span>
+                                                        <span style="padding-left: 20px; font-weight: bold; text-align: center;">AirPods Max</span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>19900</a>฿
+                                                    <a>19,900</a>฿
                                                 </td>
                                                 <td>0</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -291,13 +289,13 @@
                                                 <td>#1113</td>
                                                 <td>B323B</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
+                                                    <div style="display: flex; align-items: center; ">
                                                         <img src="https://store.storeimages.cdn-apple.com/1/as-images.apple.com/is/MUHM2_VW_34FR+watch-case-45-stainless-graphite-s9_VW_34FR+watch-face-45-stainless-graphite-s9_VW_34FR?wid=2560&hei=1640&bgc=fafafa&trim=1&fmt=p-jpg&qlt=80&.v=YUNVZ2RKR09rWVdGQ2hJRDM2U1ZXV0tvSkhsRytqVWE5dUpMRCtqb2E5MmlVd3pDUEkyWWl2cFY2TjkzV1lhVHl2M3JFSzgxeU4xYVE5dnVNZmdENjhObCtNWmtSemc2Wk1YUGt5K0cxa2trSnk3b2M5RkRpQjdRQ1h1Z0w0N1g1UUJKRC9ZTm9vQWljWGgvL1paSER1azZBY0ZXTlFGQjJWdkJQbmVYNnRhT0lodkdNeWd3SHAzZlUzNms5S2kxU2xDa2ttY2dzWENkb0dDVHdHMXNJM3lUS2l0akJyQXp6K3BTRi9VNjRDWT0" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">Apple Watch Series 9</span>
+                                                        <span style="padding-left: 20px; font-weight: bold; text-align: center;">Apple Watch Series 9</span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>46700</a>฿
+                                                    <a>46,700</a>฿
                                                 </td>
                                                 <td>5</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -325,13 +323,13 @@
                                                 <td>#1114</td>
                                                 <td>C001C</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
+                                                    <div style="display: flex; align-items: center; ">
                                                         <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp14-m3-max-pro-spaceblack-gallery6-202310?wid=2000&hei=1537&fmt=jpeg&qlt=95&.v=1697311160755" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">MacBookPro14 M3 Max Pro Spaceblack </span>
+                                                        <span style="padding-left: 20px; font-weight: bold; text-align: center;">MacBookPro14 M3 Max Pro Spaceblack</span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>79900</a>฿
+                                                    <a>79,900</a>฿
                                                 </td>
                                                 <td>17</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -359,13 +357,13 @@
                                                 <td>#1115</td>
                                                 <td>B324B</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
+                                                    <div style="display: flex; align-items: center ">
                                                         <img src="https://media-cdn.bnn.in.th/332489/iPhone_15_Pro_Max_Natural_Titanium_2-square_medium.jpg" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">iPhone15 Pro Max Natural Titanium </span>
+                                                        <span style="padding-left: 20px; font-weight: bold; text-align: center;">iPhone15 Pro Max Natural Titanium </span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>48500</a>฿
+                                                    <a>48,500</a>฿
                                                 </td>
                                                 <td>32</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -393,13 +391,13 @@
                                                 <td>#1116</td>
                                                 <td>D122D</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
+                                                    <div style="display: flex; align-items: center; ">
                                                         <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/pro-display-gallery1-201909?wid=2000&hei=1536&fmt=jpeg&qlt=95&.v=1574201024213" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">Mac Pro Display XDR </span>
+                                                        <span style="padding-left: 20px; font-weight: bold; text-align: center;">Mac Pro Display XDR </span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>189900</a>฿
+                                                    <a>189,900</a>฿
                                                 </td>
                                                 <td>48</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -427,13 +425,13 @@
                                                 <td>#1117</td>
                                                 <td>D111D</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
+                                                    <div style="display: flex; align-items: center;  ">
                                                         <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/imac-24-no-id-silver-gallery-1?wid=2000&hei=1537&fmt=jpeg&qlt=95&.v=1699550952437" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">iMac</span>
+                                                        <span style="padding-left: 20px; font-weight: bold; text-align: center;">iMac</span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>49900</a>฿
+                                                    <a>49,900</a>฿
                                                 </td>
                                                 <td>29</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -461,13 +459,13 @@
                                                 <td>#1118</td>
                                                 <td>B333B</td>
                                                 <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
+                                                    <div style="display: flex; align-items: center;">
                                                         <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/airtag-single-select-202104_FV1?wid=445&hei=370&fmt=jpeg&qlt=95&.v=1617761670000" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">Airtag </span>
+                                                        <span style="padding-left:20px; font-weight: bold; text-align: center;">Airtag </span>
                                                     </div>
                                                 </td>
                                                 <td>
-                                                    <a>1190</a>฿
+                                                    <a>1,190</a>฿
                                                 </td>
                                                 <td>16</td>
                                                 <td>10 Sep 66, 15:40 PM</td>
@@ -488,143 +486,7 @@
                                                             </div>
                                                       </div>
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td>9</td>
-                                                <td>S111</td>
-                                                <td>#1119</td>
-                                                <td>A122A</td>
-                                                <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
-                                                        <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MHXH3?wid=532&hei=582&fmt=png-alpha&.v=1661269793559" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">Magsafe charger </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a>1590</a>฿
-                                                </td>
-                                                <td>30</td>
-                                                <td>10 Sep 66, 15:40 PM</td>
-                                                <td><span class="badge bg-warning">New Arrival</span></td>
-                                                <td>
-                                                    <div>
-                                                        <img src="https://barcode.tec-it.com/barcode.ashx?data=AT+1118+B333B&code=Code128&translate-esc=on" width="150" >
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                            </a>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                            <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                            <div> <div class="dropdown-divider"></div></div>
-                                                            <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                            </div>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>10</td>
-                                                <td>S111</td>
-                                                <td>#1120</td>
-                                                <td>D123D</td>
-                                                <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
-                                                        <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mac-studio-202306-gallery-3?wid=2000&hei=1537&fmt=jpeg&qlt=95&.v=1683939204685" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">Mac studio </span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a>74900</a>฿
-                                                </td>
-                                                <td>0</td>
-                                                <td>10 Sep 66, 15:40 PM</td>
-                                                <td><span class="badge bg-danger">Sold out</span></td>
-                                                <td>
-                                                    <div>
-                                                        <img src="https://barcode.tec-it.com/barcode.ashx?data=MS+1120+D123D&code=Code128&translate-esc=on" width="150" >
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                            </a>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                            <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                            <div> <div class="dropdown-divider"></div></div>
-                                                            <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                            </div>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>11</td>
-                                                <td>S111</td>
-                                                <td>#1121</td>
-                                                <td>A123A</td>
-                                                <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
-                                                        <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/MU2G3?wid=532&hei=582&fmt=png-alpha&.v=1693236163178" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">Usb c 2m</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a>1190</a>฿
-                                                </td>
-                                                <td>100</td>
-                                                <td>10 Sep 66, 15:40 PM</td>
-                                                <td><span class="badge bg-warning">New Arrival</span></td>
-                                                <td>
-                                                    <div>
-                                                        <img src="https://barcode.tec-it.com/barcode.ashx?data=Usbc2m+1121+A123A&code=Code128&translate-esc=on" width="150" >
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                            </a>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                            <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                            <div> <div class="dropdown-divider"></div></div>
-                                                            <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                            </div>
-                                                      </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>12</td>
-                                                <td>S222</td>
-                                                <td>#2221</td>
-                                                <td>A222A</td>
-                                                <td>
-                                                    <div style="display: flex; align-items: center; padding-left: 60px; ">
-                                                        <img src="https://media-cdn.bnn.in.th/266271/Sony-PlayStation-5-Standard-(C-Chassis)-5.1-square_medium.jpg" width="70">
-                                                        <span style="padding-left: 30px; font-weight: bold; text-align: center;">PlayStation 5</span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <a>18690</a>฿
-                                                </td>
-                                                <td>0</td>
-                                                <td>10 Sep 66, 15:40 PM</td>
-                                                <td><span class="badge bg-danger">Sold out</span></td>
-                                                <td>
-                                                    <div>
-                                                        <img src="https://barcode.tec-it.com/barcode.ashx?data=PS5+2221+A222A&code=Code128&translate-esc=on" width="150" >
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                            </a>
-                                                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                            <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                            <div> <div class="dropdown-divider"></div></div>
-                                                            <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                            </div>
-                                                      </div>
-                                                </td>
-                                            </tr>
+                                            </tr> 
                                         </tbody>
                                     </table>
                             </div>
@@ -663,72 +525,322 @@
 
 
 
-<script>
- // Function to find the highest order number in the table
- function findHighestOrderNumber() {
-    let highestOrderNumber = 0;
-    const table = document.getElementById("datatablesSimple").querySelector("tbody");
-    if (table.rows.length > 0) {
-        for (let i = 0; i < table.rows.length; i++) {
-            const orderCell = table.rows[i].cells[0];
-            const orderNumber = parseInt(orderCell.textContent.replace("#", ""), 10);
-            if (!isNaN(orderNumber) && orderNumber > highestOrderNumber) {
-                highestOrderNumber = orderNumber;
-            }
-        }
-    }
-    return highestOrderNumber;
-}
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const form = document.getElementById('orderForm');
+                const Pdname = document.getElementById('Pdname');
+                const Pid = document.getElementById('Pid');
+                const Description = document.getElementById('Description');
+                const Quantity = document.getElementById('Qty');
+                const Store = document.getElementById('Store');
+                const Shelf = document.getElementById('Shelf');
+                const Price = document.getElementById('Price');
+                const Image = document.getElementById('image');
+                const Barcode = document.getElementById('barcode');
+                const tableBody = document.querySelector('#datatablesSimple tbody');
+        
+                function handleDeleteAccount(deleteButton) {
+                    const rowToDelete = deleteButton.closest('tr');
+                    const key = rowToDelete.dataset.key;
+        
+                    deleteData(key, function () {
+                        deleteRow(rowToDelete);
+                        populateTableFromLocalStorageWithKeys();
+                    });
+                }
+        
+                function deleteData(key, callback) {
+                    console.log('Deleting data from local storage with key:', key);
+        
+                    localStorage.removeItem(key);
+        
+                    // Log before calling the callback
+                    console.log('Data deleted from local storage, calling callback');
+        
+                    // Call the callback function after removing the item
+                    callback();
+        
+                    // Renumber the data after deletion
+                    renumberData();
+                }
+        
+                function renumberData() {
+                    const rows = document.querySelectorAll('#datatablesSimple tbody tr');
+        
+                    rows.forEach((row, index) => {
+                        const numCell = row.querySelector('td:nth-child(1)');
+                        numCell.textContent = index + 1;
+                    });
+                }
+        
+                function deleteRow(row) {
+                    console.log('Deleting row from the table:', row);
+        
+                    row.remove();
+                }
+        
+                tableBody.addEventListener('click', function (event) {
+                    const target = event.target;
+        
+                    console.log('Clicked element:', target);
+        
+                    if (target.tagName === 'A' && target.classList.contains('delete-product')) {
+                        console.log('Delete button clicked');
+        
+                        const rowToDelete = target.closest('tr');
+                        const key = target.dataset.key;
+        
+                        const confirmDelete = confirm('Are you sure you want to delete this product ?');
+        
+                        if (confirmDelete) {
+                            handleDeleteProduct(target);
+                        }
+                    }
+                });
+        
+                function addUniqueKeyToRow(row, key) {
+                    row.dataset.key = key;
+                }
+        
+                function addTableRowWithKey(num, store, productID, shelf, imageUrl, Pdname, price, Qty, date, badge, barcode, key) {
+                    const newRow = document.createElement('tr');
+        
+                    newRow.innerHTML = `
+                        <td>${num}</td>
+                        <td>${store}</td>
+                        <td>#${productID}</td>
+                        <td>${shelf}</td>
+                        <td>
+                            <div style="display: flex; align-items: center;">
+                                <img src="${imageUrl}" width="70">
+                                <span style="padding-left: 20px; font-weight: bold; text-align: center;">${Pdname}</span>
+                            </div>
+                        </td>
+                        <td><a>${price}฿</a></td>
+                        <td>${Qty}</td>
+                        <td>${date}</td>
+                        <td><span class="badge bg-warning">${badge}</span></td>
+                        <td>
+                            <div>
+                                <img src="${barcode}" width="150">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="dropdown">
+                                <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i
+                                        class="fas fa-ellipsis-h" style="color: #646464;"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#!">Edit</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item delete-product" href="#!" style="color: red;"
+                                        data-key="${key}">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    `;
+        
+                    addUniqueKeyToRow(newRow, key);
+        
+                    tableBody.appendChild(newRow);
+                }
+        
+                function getMaxNumFromLocalStorage() {
+                    let maxNum = 0;
+        
+                    // Check HTML table rows for existing numbers
+                    const htmlTableRows = document.querySelectorAll('#datatablesSimple tbody tr');
+                    htmlTableRows.forEach(row => {
+                        const numCell = row.querySelector('td:nth-child(1)');
+                        const num = parseInt(numCell.textContent, 10);
+                        maxNum = Math.max(maxNum, num);
+                    });
+        
+                    // Check local storage for existing numbers
+                    for (let i = 0; i < localStorage.length; i++) {
+                        const storedKey = localStorage.key(i);
+                        if (storedKey.startsWith('userData_')) {
+                            const storedData = getStoredData(storedKey);
+                            if (storedData) {
+                                const [storedNum] = storedData.split('|');
+                                maxNum = Math.max(maxNum, parseInt(storedNum, 10));
+                            }
+                        }
+                    }
+        
+                    return maxNum;
+                }
+        
+                function addTableRowAndSaveToLocalStorage(storeName, productID, shelf, imageUrl, Pdname, price, Qty, badge, barcode) {
+                    const key = generateUniqueKey();
+        
+                    const currentDate = new Date();
+                    const formattedTime = currentDate.toLocaleTimeString('en-US', {
+                        hour12: false,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                    });
+                    const ampm = currentDate.getHours() >= 12 ? 'PM' : 'AM';
+                    const formattedDate = `${formattedTime} ${ampm} , ${currentDate.toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                    })}`;
+        
+                    const maxNum = getMaxNumFromLocalStorage();
+        
+                    const productNameReadable = Pdname.trim();
+        
+                    const data = `${maxNum + 1}|${storeName}|${productID}|${shelf}|${imageUrl}|${productNameReadable}|${price}|${Qty}|${formattedDate}|${badge}|${barcode}`;
+        
+                    saveDataToLocalStorage(key, data);
+                    addTableRowWithKey(maxNum + 1, storeName, productID, shelf, imageUrl, productNameReadable, price, Qty, formattedDate, badge, barcode, key);
+                }
+        
+                function generateUniqueKey() {
+                    return `userData_${Date.now()}`;
+                }
+        
+                function saveDataToLocalStorage(key, data) {
+                    localStorage.setItem(key, data);
+                }
+        
+                function getStoredData(key) {
+                    return localStorage.getItem(key);
+                }
+        
+                function populateTableFromLocalStorageWithKeys() {
+                    const storedItems = [];
+                    for (let i = 0; i < localStorage.length; i++) {
+                        const key = localStorage.key(i);
+        
+                        const storedData = getStoredData(key);
+        
+                        if (storedData) {
+                            storedItems.push({
+                                key,
+                                data: storedData
+                            });
+                        }
+                    }
+        
+                    // Sort the items based on the stored number
+                    storedItems.sort((a, b) => {
+                        const [numA] = a.data.split('|');
+                        const [numB] = b.data.split('|');
+                        return parseInt(numA, 10) - parseInt(numB, 10);
+                    });
+        
+                    // Re-add the rows based on the sorted order
+                    storedItems.forEach((item, index) => {
+                        const [num, store, productID, shelf, imageUrl, Pdname, price, Qty, date, badge, barcode] = item.data.split('|');
+                        addTableRowWithKey(num, store, productID, shelf, imageUrl, Pdname, price, Qty, date, badge, barcode, item.key);
+                    });
+                }
+        
+                function handleDeleteProduct(deleteButton) {
+                    const rowToDelete = deleteButton.closest('tr');
+                    const key = deleteButton.dataset.key;
+        
+                    console.log('Handling product deletion for key:', key);
+        
+                    console.log('Deleting data for key:', key);
+        
+                    deleteData(key, function () {
+                        console.log('Data deleted successfully for key:', key);
+        
+                        deleteRow(rowToDelete);
+        
+                        populateTableFromLocalStorageWithKeys();
+                    });
+                }
+        
+                function resetForm() {
+                    Pdname.value = '';
+                    Pid.value = '';
+                    Store.value = 'default';
+                    Shelf.value = '';
+                    Price.value = '';
+                    Qty.value = '';
+                    Image.value = '';
+                    Barcode.value = '';
+                    Description.value = '';
+                }
+        
+                // Add the default rows to the tableBody
+                const defaultRows = document.querySelectorAll('#datatablesSimple tbody tr');
+                defaultRows.forEach(row => tableBody.appendChild(row));
+        
+                // Populate the table with data from local storage
+                populateTableFromLocalStorageWithKeys();
+        
+                document.getElementById('createOrderButton').addEventListener('click', function (event) {
+                    event.preventDefault();
+        
+                    const currentDate = new Date();
+                    const formattedTime = currentDate.toLocaleTimeString('en-US', {
+                        hour12: false,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                    });
+                    const ampm = currentDate.getHours() >= 12 ? 'PM' : 'AM';
+                    const formattedDate = `${formattedTime} ${ampm} , ${currentDate.toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                    })}`;
+        
+                    if (
+                        Pdname.value &&
+                        Description.value &&
+                        Pid.value &&
+                        Store.value &&
+                        Shelf.value &&
+                        Price.value &&
+                        Qty.value &&
+                        Image.value &&
+                        Barcode.value
+                    ) {
+                        addTableRowAndSaveToLocalStorage(
+                            Store.options[Store.selectedIndex].text,  // Get the selected store name
+                            Pid.value,
+                            Shelf.value,
+                            Image.value,
+                            Pdname.value,
+                            Price.value,
+                            Qty.value,
+                            'New Arrival',
+                            Barcode.value
+                        );
+        
+                        alert('Product entry added successfully!');
+                        resetForm();
+                    } else {
+                        alert('Please fill in all fields before creating a product entry.');
+                        resetForm();
+                    }
+                });
+        
+                document.getElementById('customCloseButton').addEventListener('click', function () {
+                    resetForm();
+                });
+        
+                function getMonthName(monthIndex) {
+                    const monthNames = [
+                        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                    ];
+                    return monthNames[monthIndex];
+                }
+            });
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
 
-// Open the "Pending" modal when the "Pending" dropdown item is clicked
-document.getElementById("orderLink").addEventListener("click", function() {
-    $('#myModalDetailed').modal('show');
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  // Add an event listener to the form submission
-  document.getElementById('orderForm').addEventListener('submit', function (event) {
-    // Prevent the default form submission
-    event.preventDefault();
-
-    // Reset the form to clear the data
-    this.reset();
-  });
-});
-
-
-
-
-
-
-
-
-        // Store customerName in localStorage
-        localStorage.setItem("CusName", customerName); 
-        localStorage.setItem("CusAdd", customerName);
-        localStorage.setItem("CusPhone", customerName);  
-
-
-        document.getElementById("createOrderButton").addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent the default form submission
-
-        // Get the customer name from the form
-        const customerName = document.getElementById("CusName").value;
-
-    
-
-          
-    });
-; 
-function confirmLogout() {
-        window.location.href = "login.html";
-    }
-
-</script>
 </body>
 </html>
-<script>
-    function confirmLogout() {
-        window.location.href = "login.html";
-    }
-</script>

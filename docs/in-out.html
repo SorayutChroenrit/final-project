@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Stock in</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <!-- Include Bootstrap and Font Awesome CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-........" crossorigin="anonymous" />
+
+        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+        
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark " >
+            <!-- Navbar Brand-->
+            <a class="navbar-brand ps-3" href="index.html" style="margin-left: 16px; background-color: #212529;">Mango Storage</a>
+            <!-- Sidebar Toggle-->
+            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+            <!-- Navbar Search-->
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+                <div class="input-group">
+                    <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                </div>
+            </form>
+            <!-- Navbar-->
+            <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <div class="dropdown-divider"></div>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#confirmationModal">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                            <div class="sb-sidenav-menu-heading">Menu</div>
+                            <a class="nav-link" href="index.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                Dashboard
+                                <a class="nav-link collapsed" href="order.html" >
+                                    <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
+                                    Order
+                                </a>
+                            </a>
+                            <a class="nav-link collapsed" href="Product.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
+                                Products<div class="sb-sidenav-collapse-arrow"></div>
+                            </a>  
+                            <a class="nav-link collapsed" href="in-out.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
+                                Stock in<div class="sb-sidenav-collapse-arrow"></div>
+                            </a> 
+                            <a class="nav-link" href="reports.html">
+                                <div class="sb-nav-link-icon" ><i class="fas fa-chart-area"></i></div>
+                                Reports
+                            </a>
+                            <a class="nav-link" href="employee.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                                Employee
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to log out?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                        <button type="button" class="btn btn-danger" onclick="confirmLogout()">Yes</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">Stock in</h1>
+                        <ol class="breadcrumb mb-4" style="background-color: white; display: flex; align-items: center;">
+                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Stock in</li>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="height: 20%; margin-left: auto;">Add Bill</button>
+                        </ol>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                Bill
+                            </div>
+                            
+                        <div class="row">
+                    </div>
+                            <!-- Modal -->
+                <div id="myModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4  class="modal-title"  style="font-weight: bold;" >Add Bill</h4>
+                                            </div>
+                                        <div class="modal-body">
+                                            <form>
+                                            <div id="orderForm">
+                                                <div class="mb-3">
+                                                  <label for="CusName" class="form-label" style="font-weight: bold;">Bill Number</label>
+                                                  <input type="text" class="form-control" id="Bnumber" aria-describedby="CusName">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="CusAdd" class="form-label" style="font-weight: bold;">Product Name</label>
+                                                    <select class="form-select" id="Pname" aria-describedby="Product">
+                                                        <option value="" disabled selected hidden>(Optional)</option>
+                                                        <option value="option1">AirPods Pro (Gen 2)</option>
+                                                        <option value="option2">AirPods Max</option>
+                                                        <option value="option3">Apple Watch Series 9</option>
+                                                        <option value="option4">MacBookPro14 M3 Max Pro Spaceblack</option>
+                                                        <option value="option5">iPhone15 Pro Max Natural Titanium</option>
+                                                        <option value="option6">Mac Pro Display XDR</option>
+                                                        <option value="option7">iMac</option>
+                                                        <option value="option8">Airtag</option>
+                                                    </select>
+                                                </div>
+                                                <div class="mb-3" style="display: flex; justify-content: space-between;">
+                                                    <div style="flex: 1; margin-right: 10px;">
+                                                        <label for="CusPhone" class="form-label" style="font-weight: bold;">Product ID</label>
+                                                        <input type="text" class="form-control" id="Pid" aria-describedby="CusPhone" readonly>
+                                                    </div>
+                                                    <div style="flex: 1;">
+                                                        <label for="Dby" class="form-label" style="font-weight: bold;">Quantity</label>
+                                                        <input type="number" class="form-control" id="Qty" aria-describedby="Dby">
+                                                    </div>
+                                                </div>
+                                                </div>
+                                             </form>
+                                    </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary" id="createbillButton" onclick="addTableRowAndSaveToLocalStorage()">Create Bill</button>
+                                        <button type="button" class="btn btn-danger" id="customCloseButton" data-bs-dismiss="modal">Back</button>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+                    <div class="card-body">
+                        <table id="datatablesSimple" class="table table-striped table-hover " style="text-align: left;">
+                            <thead>
+                                <tr>
+                                    <th>Bill number</th>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th>Bill number</th>
+                                    <th>Product ID</th>
+                                    <th>Product Name</th>
+                                    <th>Quantity</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                                <tr data-key="someKey1" >
+                                    <td >MG123454</td>
+                                    <td>#1111</td>
+                                    <td>AirPods Pro(Gen2)</td>
+                                    <td>10</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>15:40 PM , 10 Sep 66</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
+                                                </a>
+                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                <a><a class="dropdown-item" href="#!">Edit</a></a>
+                                                <div> <div class="dropdown-divider"></div></div>
+                                                <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
+                                                </div>
+                                          </div>
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td>MG123456</td>
+                                    <td>#1111</td>
+                                    <td>Apple Watch Series 9</td>
+                                    <td>20</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>16:40 PM , 10 Sep 66</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
+                                                </a>
+                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                <a><a class="dropdown-item" href="#!">Edit</a></a>
+                                                <div> <div class="dropdown-divider"></div></div>
+                                                <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
+                                                </div>
+                                          </div>
+                                    </td>
+                                </tr>
+                                <tr >
+                                    <td>MG345356</td>
+                                    <td>#1111</td>
+                                    <td>AirPods Max</td>
+                                    <td>40</td>
+                                    <td><span class="badge bg-success">Completed</span></td>
+                                    <td>14:40 PM , 11 Sep 66</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
+                                                </a>
+                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                                <a><a class="dropdown-item" href="#!">Edit</a></a>
+                                                <div> <div class="dropdown-divider"></div></div>
+                                                <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
+                                                </div>
+                                          </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid px-4">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2021</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                                </div>
+                            </div>
+                            <div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>  
+        <script src="js/scripts.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        <script src="js/datatables-simple-demo.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+        <script src="assets/demo/chart-area-demo.js"></script>
+        <script src="assets/demo/chart-bar-demo.js"></script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
+        
+
+        <script>
+            function confirmLogout() {
+                window.location.href = "login.html";
+            }
+    
+            function mapProductNameToProductId(productName) {
+                switch (productName) {
+                    case 'option1':
+                        return '#1111';
+                    case 'option2':
+                        return '#1112';
+                    case 'option3':
+                        return '#1113';
+                    case 'option4':
+                        return '#1114';
+                    case 'option5':
+                        return '#1115';
+                    case 'option6':
+                        return '#1116';
+                    case 'option7':
+                        return '#1117';
+                    case 'option8':
+                        return '#1118';
+                    default:
+                        return '';
+                }
+            }
+    
+            document.addEventListener('DOMContentLoaded', function () {
+                const billNumber = document.getElementById('Bnumber');
+                const productName = document.getElementById('Pname');
+                const productId = document.getElementById('Pid');
+                const quantity = document.getElementById('Qty');
+                const tableBody = document.querySelector('#datatablesSimple tbody');
+    
+                function handleDeleteAccount(deleteButton) {
+                    const rowToDelete = deleteButton.closest('tr');
+                    const key = rowToDelete.dataset.key;
+        
+                    deleteData(key, function () {
+                        deleteRow(rowToDelete);
+                        populateTableFromLocalStorageWithKeys();
+                    });
+                }
+    
+                function deleteData(key, callback) {
+                    console.log('Deleting data from local storage with key:', key);
+    
+                    localStorage.removeItem(key);
+    
+                    callback();
+                }
+    
+                function deleteRow(row) {
+                    console.log('Deleting row from the table:', row);
+    
+                    row.remove();
+                }
+    
+                // Call the function to add default rows
+                addDefaultRows();
+    
+                tableBody.addEventListener('click', function (event) {
+                    const target = event.target;
+    
+                    if (target.tagName === 'A' && target.classList.contains('delete-account') && target.style.color === 'red') {
+                        const rowToDelete = target.closest('tr');
+    
+                        const confirmDelete = confirm('Are you sure you want to delete this entry?');
+    
+                        if (confirmDelete) {
+                            handleDeleteAccount(target);
+                        }
+                    }
+                });
+    function addDefaultRows() {
+                    const defaultRows = document.querySelectorAll('#datatablesSimple tbody tr');
+                    defaultRows.forEach(row => tableBody.appendChild(row));
+                }
+                function addUniqueKeyToRow(row, key) {
+                    console.log('Setting data-key to:', key);
+                    row.dataset.key = key;
+                }
+    
+                function addTableRowWithKey(billNumber, productId, productName, quantity, date, key) {
+                    const newRow = document.createElement('tr');
+    
+                    newRow.innerHTML = `
+                        <td>${billNumber}</td>
+                        <td>${productId}</td>
+                        <td>${productName}</td>
+                        <td>${quantity}</td>
+                        <td><span class="badge bg-success">Completed</span></td>
+                        <td>${date}</td>
+                        <td>
+                            <div class="dropdown">
+                                <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i></a>
+                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#editModal">Edit</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item delete-account" href="#!" style="color: red;" data-key="${key}">Delete</a>
+                                </div>
+                            </div>
+                        </td>
+                    `;
+    
+                    addUniqueKeyToRow(newRow, key);
+    
+                    tableBody.appendChild(newRow);
+                }
+    
+                function populateTableFromLocalStorage() {
+                    console.log('Populating table from local storage');
+    
+                    
+    
+                    // Populate from local storage
+                    for (let i = 0; i < localStorage.length; i++) {
+                        const key = localStorage.key(i);
+                        addTableRowWithKeyFromLocalStorage(key);
+                    }
+    
+                    console.log('Table populated from local storage');
+                }
+    
+                function addTableRowWithKeyFromLocalStorage(key) {
+                    const storedData = getStoredData(key);
+    
+                    if (storedData) {
+                        const [billNumber, productId, productName, quantity, date] = storedData.split('|');
+                        addTableRowWithKey(billNumber, productId, productName, quantity, date, key);
+                    }
+                }
+    
+                function addTableRowAndSaveToLocalStorage(billNumber, productId, productName, quantity) {
+                    const key = generateUniqueKey();
+                    const currentDate = new Date();
+    
+                    const formattedTime = currentDate.toLocaleTimeString('en-US', {
+                        hour12: false,
+                        hour: '2-digit',
+                        minute: '2-digit',
+                    });
+                    const ampm = currentDate.getHours() >= 12 ? 'PM' : 'AM';
+                    const formattedDate = `${formattedTime} ${ampm} , ${currentDate.toLocaleDateString('en-GB', {
+                        day: 'numeric',
+                        month: 'short',
+                        year: 'numeric',
+                    })}`;
+                    const productNameReadable = mapRoleValueToRole(productName.value);
+    
+                    // Save data to local storage
+                    saveDataToLocalStorage(key, `${billNumber}|${productId}|${productName}|${quantity}|${formattedDate}`);
+    
+                    // Display the data in the table without saving to local storage
+                    addTableRowWithKey(billNumber, productId, productNameReadable, quantity, formattedDate, key);
+                }
+    
+                function generateUniqueKey() {
+                    return `userData_${Date.now()}`;
+                }
+    
+                function saveDataToLocalStorage(key, data) {
+                    localStorage.setItem(key, data);
+                }
+    
+                function getStoredData(key) {
+                    return localStorage.getItem(key);
+                }
+    
+                function mapRoleValueToRole(value) {
+                    switch (value) {
+                        case 'option1':
+                            return 'AirPods Pro (Gen 2)';
+                        case 'option2':
+                            return 'AirPods Max';
+                        case 'option3':
+                            return 'Apple Watch Series 9';
+                        case 'option4':
+                            return 'MacBookPro14 M3 Max Pro Spaceblack';
+                        case 'option5':
+                            return 'iPhone15 Pro Max Natural Titanium';
+                        case 'option6':
+                            return 'Mac Pro Display XDR';
+                        case 'option7':
+                            return 'iMac';
+                        case 'option8':
+                            return 'Airtag';
+                        default:
+                            return 'Unknown';
+                    }
+                }
+    
+                function resetForm() {
+                    billNumber.value = '';
+                    productName.value = 'default';
+                    productId.value = '';
+                    quantity.value = '';
+                }
+    
+                productName.addEventListener('change', function () {
+                    const selectedProductName = this.value;
+    
+                    const productIdValue = mapProductNameToProductId(selectedProductName);
+    
+                    productId.value = productIdValue;
+                });
+    
+                document.getElementById('createbillButton').addEventListener('click', function () {
+                    if (billNumber.value && productId.value && productName.value && quantity.value) {
+                        const productNameReadable = mapRoleValueToRole(productName.value);
+    
+                        // Display the data in the table without saving to local storage
+                        addTableRowAndSaveToLocalStorage(billNumber.value, productId.value, productNameReadable, quantity.value);
+                        alert('Bill entry added successfully!');
+                        resetForm();
+                    } else {
+                        alert('Please fill in all fields before creating a bill entry.');
+                        resetForm();
+                    }
+                });
+    
+                document.getElementById('customCloseButton').addEventListener('click', function () {
+                    resetForm();
+                });
+    
+                // Initial population from local storage
+                populateTableFromLocalStorage();
+    
+                function getMonthName(monthIndex) {
+                    const monthNames = [
+                        'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                    ];
+                    return monthNames[monthIndex];
+                }
+            });
+        </script>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
+        
+</body>
+</html>
+
