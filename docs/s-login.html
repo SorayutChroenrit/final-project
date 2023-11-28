@@ -35,12 +35,7 @@
                                                 
                                             </div>
                                              <div style="padding-top: 15px;" class="d-flex justify-content-center mt-3 mb-0">
-                
-                                                <button  class="btn btn-success" id="memberLoginBtn" type="button" onclick="LoginM()" style="width: 35%; margin-right: 10px; color: #fff; background-color: #18C1D9; border-color: #13B4D6;">Login As Member</button>
                                                 <button class="btn btn-success" id="staffLoginBtn" type="button" onclick="LoginS()" style="width: 35%; margin-right: 10px; color: #fff; background-color: blue border">Login As Staff</button>                                           
-                                                </div>
-                                                <div style="padding-top: 15px;  text-align: center;">
-                                                <button class="btn btn-success" id="adminLoginBtn" type="button" onclick="LoginA()" style="width: 35%; margin-right: 10px; color: #fff; background-color: #d9184c; border-color: #d9184c;">Login As Admin</button>   
                                                 </div>
                                         </form>
                                     </div>
@@ -57,43 +52,16 @@
         
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-     <script>
+        <script>
             
 
-            const loginAsAdmin = () => {
-    let UserName = document.getElementById('txtUsername').value;
-    let Password = document.getElementById('txtPassword').value;
-
-    // Check if the user is trying to log in as admin
-    if (UserName === 'admin' && Password === '11111111') {
-        // Admin login successful
-        window.location.href = 'dashboard.html';
-        resetForm();
-    } else if (UserName === 'member' && Password === '11111111') {
-        // Member login successful, but not as admin
-        alert("Members don't have admin permission.");
-        resetForm();
-    } else if (UserName === 'staff' && Password === '11111111') {
-        // Staff login successful, but not as admin
-        alert("Staff don't have admin permission.");
-        resetForm();
-    } else {
-        // Invalid login for all other users
-        handleInvalidLogin();
-        resetForm();
-    }
-};
 
 const loginAsStaff = () => {
     let UserName = document.getElementById('txtUsername').value;
     let Password = document.getElementById('txtPassword').value;
 
-    if (UserName === 'admin' && Password === '11111111') {
+    if (UserName === 'staff' && Password === '11111111') {
         // Staff login successful
-        window.location.href = 's-dashboard.html';
-        resetForm();
-    }   else if (UserName === 'staff' && Password === '11111111') {
-        // Member login successful, but not as admin
         window.location.href = 's-dashboard.html';
         resetForm();
     } else {
@@ -101,22 +69,6 @@ const loginAsStaff = () => {
     }
 };
 
-const loginAsMember = () => {
-    let UserName = document.getElementById('txtUsername').value;
-    let Password = document.getElementById('txtPassword').value;
-
-    if (UserName === 'admin' && Password === '11111111') {
-        // Staff login successful
-        window.location.href = 'm-dashboard.html';
-        resetForm();
-    }   else if (UserName === 'member' && Password === '11111111') {
-        // Member login successful, but not as admin
-        window.location.href = 'm-dashboard.html';
-        resetForm();
-    } else {
-        handleInvalidLogin();
-    }
-};
 
 const handleInvalidLogin = () => {
     let UserName = document.getElementById('txtUsername').value;
@@ -134,9 +86,7 @@ const handleInvalidLogin = () => {
     }
 };
 
-document.getElementById('adminLoginBtn').addEventListener('click', loginAsAdmin);
 document.getElementById('staffLoginBtn').addEventListener('click', loginAsStaff);
-document.getElementById('memberLoginBtn').addEventListener('click', loginAsMember);
 
 function isPasswordValid(password) {
     // Add your password validation logic here if needed

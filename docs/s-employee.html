@@ -24,7 +24,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark " >
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="dashboard.html" style="margin-left: 16px; background-color: #212529;">Mango Storage</a>
+            <a class="navbar-brand ps-3" href="s-dashboard.html" style="margin-left: 16px; background-color: #212529;">Mango Storage</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -53,27 +53,27 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Menu</div>
-                            <a class="nav-link" href="dashboard.html">
+                            <a class="nav-link" href="s-dashboard.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
-                                <a class="nav-link collapsed" href="order.html" >
+                                <a class="nav-link collapsed" href="s-order.html" >
                                     <div class="sb-nav-link-icon"><i class="fas fa-list"></i></div>
                                     Order
                                 </a>
                             </a>
-                            <a class="nav-link collapsed" href="Product.html">
+                            <a class="nav-link collapsed" href="s-Product.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                                 Products<div class="sb-sidenav-collapse-arrow"></div>
                             </a>  
-                            <a class="nav-link collapsed" href="in-out.html">
+                            <a class="nav-link collapsed" href="s-in-out.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
                                 Stock in<div class="sb-sidenav-collapse-arrow"></div>
                             </a> 
-                            <a class="nav-link" href="reports.html">
+                            <a class="nav-link" href="s-reports.html">
                                 <div class="sb-nav-link-icon" ><i class="fas fa-chart-area"></i></div>
                                 Analytics
                             </a>
-                            <a class="nav-link" href="employee.html">
+                            <a class="nav-link" href="s-employee.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
                                 Employee
                             </a>
@@ -103,7 +103,7 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Employee</h1>
                         <ol class="breadcrumb mb-4" style="background-color: white; display: flex; align-items: center;">
-                            <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="s-dashboard.html">Dashboard</a></li>
                             <li class="breadcrumb-item active">Employee</li>
                             <!-- Trigger the modal with a button -->
                             <a  class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal" style="height: 20%; margin-left: auto;">Create Employee</a>
@@ -141,9 +141,7 @@
                                                                 <label for="Product" class="form-label" style="font-weight: bold; padding-bottom: 4px; ">Permission</label>
                                                                 <select class="form-select" id="Product3" aria-describedby="Product">
                                                                     <option value="" disabled selected hidden>(Select Role)</option>
-                                                                    <option value="option1">Admin</option>
-                                                                    <option value="option2">Staff</option>
-                                                                    <option value="option3">Member</option>
+                                                                    <option value="option1">Member</option>
                                                                 </select>
                                                             </div>
                                                 </div>
@@ -186,25 +184,6 @@
                                 </tr>
                             </tfoot>
                             <tbody>
-                                <tr>
-                                    <td>Marius Irena</td>
-                                    <td>Admin</td>
-                                    <td>
-                                        <span class="badge bg-success">Active</span>
-                                    </td>
-                                    <td>5 Sep 2023</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <a role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-ellipsis-h" style="color: #646464;"></i>
-                                                </a>
-                                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                                <a><a class="dropdown-item" href="#!">Edit</a></a>
-                                                <div> <div class="dropdown-divider"></div></div>
-                                                <a><a class="dropdown-item" href="#!" style="color: red;">Delete</a></a>
-                                                </div>
-                                            </div>
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td>Markos Mustafa</td>
                                     <td>Staff</td>
@@ -340,7 +319,7 @@
        
         <script>
             function confirmLogout() {
-                window.location.href = "index.html";
+                window.location.href = "s-login.html";
             }
         
             document.addEventListener('DOMContentLoaded', function () {
@@ -451,10 +430,6 @@ addUniqueKeyToRow(newRow, key);
                 function mapRoleValueToRole(value) {
                     switch (value) {
                         case 'option1':
-                            return 'Admin';
-                        case 'option2':
-                            return 'Staff';
-                        case 'option3':
                             return 'Member';
                         default:
                             return '';
