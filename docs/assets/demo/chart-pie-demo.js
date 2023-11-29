@@ -7,10 +7,10 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ["Blue", "Red", "Yellow", "Green"],
+    labels: ["iPhone", "MacBook", "AirPods", "Apple Watch", "Mac studio"],
     datasets: [{
-      data: [12.21, 15.58, 11.25, 8.32],
-      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
+      data: [54.73, 13.52, 11.05 , 10.54, 10.14],
+      backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745','#e6547f'],
     }],
   },
 });
